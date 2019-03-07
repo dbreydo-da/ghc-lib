@@ -220,6 +220,8 @@ generateCabal = do
         indent2 (askField lib "exposed-modules:") ++
         ["    other-modules:"] ++
         indent2 (askField lib "other-modules:") ++
+        ["    extra-libraries:"
+        ,"        ffi"] ++
         [""
         ,"executable ghc-lib"
         ,"    default-language:   Haskell2010"
