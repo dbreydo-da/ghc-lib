@@ -17,7 +17,11 @@ before_install:
     if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
       docker pull alpine/git
       docker run -ti --rm -v ${HOME}:/root -v $(pwd):/git alpine/git clone https://gitlab.haskell.org/ghc/ghc.git /git/ghc --recursive
+      sudo apt-get update&&sudo apt-get install libffi
+    else
+      sudo brew install libffi
     fi
+
 
 # [Why we git clone on linux here]
 # At this time, `git clone https://gitlab.haskell.org/ghc/ghc.git`

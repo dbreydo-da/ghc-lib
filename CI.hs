@@ -17,7 +17,7 @@ main = do
             putStrLn $ "# Completed in " ++ showDuration t ++ ": " ++ x ++ "\n"
             hFlush stdout
     when isWindows $
-        cmd "stack exec -- pacman -S autoconf automake-wrapper make patch python tar --noconfirm"
+        cmd "stack exec -- pacman -S autoconf automake-wrapper make patch python tar libffi --noconfirm"
     when (isWindows || isMac) $
         cmd "git clone https://gitlab.haskell.org/ghc/ghc.git --recursive"
              -- ^ The `git clone` is handled in .travis.yml for linux
